@@ -5,7 +5,7 @@ metadata:
   labels:
     app: argocd-demo
 spec:
-  replicas: 5
+  replicas: 3
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: argocd-demo
-          image: "shariqrizvi/simple-frontend:v7"
+          image: "shariqrizvi/simple-frontend:v9"
           ports:
           - containerPort: 3000
             protocol: TCP
