@@ -19,6 +19,7 @@ kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut
 create the Argo app
 kubectl create namespace argo-cd-demo
 
+open browser localhost:8090 and create application
 
 argocd app create argo-cd-demo 
 --name argo-cd-demo

@@ -18,7 +18,7 @@ spec:
       containers:
         - name: argocd-demo
           # image: "shariqrizvi/simple-frontend:v9"
-          image: paulbouwer/hello-kubernetes:1.5
+          image: paulbouwer/hello-kubernetes:1.8
           ports:
           # - containerPort: 3000
           - containerPort: 8080
