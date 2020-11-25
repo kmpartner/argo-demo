@@ -1,0 +1,30 @@
+
+Install Argo CD CLI. 
+
+
+Install Argo CD
+kubectl create namespace argocd
+
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+
+Access Argo CD API Server
+kubectl port-forward svc/argocd-server -n argocd 8090:443
+
+
+Credentials of an Argo CD server. (ID: admin)
+kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
+
+
+create the Argo app
+kubectl create namespace argo-cd-demo
+
+
+argocd app create argo-cd-demo 
+--name argo-cd-demo
+--project default
+--repo https://github.com/kmpartner/argo-demo.git 
+--path . 
+--dest-server https://kubernetes.default.svc 
+--dest-namespace argo-cd-demo 
+--sync-policy automated
