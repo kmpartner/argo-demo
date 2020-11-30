@@ -18,10 +18,11 @@ spec:
       containers:
         - name: argocd-demo
           # image: "shariqrizvi/simple-frontend:v9"
-          image: paulbouwer/hello-kubernetes:1.8
+          # image: paulbouwer/hello-kubernetes:1.8
+          image: kmpartner/nodejs-express-template
           ports:
           # - containerPort: 3000
-          - containerPort: 8080
+          - containerPort: 4000
             protocol: TCP
 ---
 apiVersion: v1
@@ -34,7 +35,7 @@ spec:
   ports:
     - port: 80
       # targetPort: 3000
-      targetPort: 8080
+      targetPort: 4000
       protocol: TCP
   selector:
     app: argocd-demo

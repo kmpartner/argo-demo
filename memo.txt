@@ -29,3 +29,7 @@ argocd app create argo-cd-demo
 --dest-server https://kubernetes.default.svc 
 --dest-namespace argo-cd-demo 
 --sync-policy automated
+
+
+example apps
+https://github.com/argoproj/argocd-example-apps
