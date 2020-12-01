@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: argocd-demo
+  labels:
+    app: argocd-demo
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: argocd-demo
+  template:
+    metadata:
+      labels:
+        app: argocd-demo
+    spec:
+      containers:
+        - name: argocd-demo
+          # image: "shariqrizvi/simple-frontend:v9"
+          # image: paulbouwer/hello-kubernetes:1.8
+          image: kmpartner/nodejs-express-template
+          ports:
+          # - containerPort: 3000
+          - containerPort: 4000
+            protocol: TCP
