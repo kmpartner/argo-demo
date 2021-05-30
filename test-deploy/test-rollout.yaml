@@ -1,57 +1,57 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
-metadata:
-  name: argocd-demo
-  labels:
-    app: argocd-demo
-spec:
-  replicas: 1
-  revisionHistoryLimit: 3
-  minReadySeconds: 30
-  strategy:
-    canary: #Indicates that the rollout should use the Canary strategy
-      maxSurge: "25%"
-      maxUnavailable: 0
-      canaryService: argocd-demo-canary
-      # stableService: ud-rest-gql-api-nodejs-stable
-      stableService: argocd-demo
+# apiVersion: argoproj.io/v1alpha1
+# kind: Rollout
+# metadata:
+#   name: argocd-demo
+#   labels:
+#     app: argocd-demo
+# spec:
+#   replicas: 1
+#   revisionHistoryLimit: 3
+#   minReadySeconds: 30
+#   strategy:
+#     canary: #Indicates that the rollout should use the Canary strategy
+#       maxSurge: "25%"
+#       maxUnavailable: 0
+#       canaryService: argocd-demo-canary
+#       # stableService: ud-rest-gql-api-nodejs-stable
+#       stableService: argocd-demo
 
-      # For a normal rolling update, simply specify the canary strategy without steps defined.
-      # The maxSurge and maxUnavailable fields can be specified. If omitted, defaults to 25% and 0
-      # respectively.   https://github.com/argoproj/argo-rollouts/blob/master/examples/rollout-rolling-update.yaml
-      steps:
-        - setWeight: 1
-        - pause: {}
-        - setWeight: 80
-        - pause: {duration: 10}
-        # - setWeight: 20
-        # - pause: {}
-        # - setWeight: 40
-        # - pause: {duration: 10}
-        # - setWeight: 60
-        # - pause: {duration: 10}
-        # - setWeight: 80
-        # - pause: {duration: 10}
-      # steps:
-      # - setWeight: 10
-      # - pause:
-      #     duration: 1h # 1 hour
-      # - setWeight: 20
-      # - pause: {} # pause indefinitely
-  selector:
-    matchLabels:
-      app: argocd-demo
-  template:
-    metadata:
-      labels:
-        app: argocd-demo
-    spec:
-      containers:
-        - name: argocd-demo
-          # image: "shariqrizvi/simple-frontend:v9"
-          # image: paulbouwer/hello-kubernetes:1.8
-          image: kmpartner/nodejs-express-template
-          ports:
-          # - containerPort: 3000
-          - containerPort: 4000
-            protocol: TCP
+#       # For a normal rolling update, simply specify the canary strategy without steps defined.
+#       # The maxSurge and maxUnavailable fields can be specified. If omitted, defaults to 25% and 0
+#       # respectively.   https://github.com/argoproj/argo-rollouts/blob/master/examples/rollout-rolling-update.yaml
+#       steps:
+#         - setWeight: 1
+#         - pause: {}
+#         - setWeight: 80
+#         - pause: {duration: 10}
+#         # - setWeight: 20
+#         # - pause: {}
+#         # - setWeight: 40
+#         # - pause: {duration: 10}
+#         # - setWeight: 60
+#         # - pause: {duration: 10}
+#         # - setWeight: 80
+#         # - pause: {duration: 10}
+#       # steps:
+#       # - setWeight: 10
+#       # - pause:
+#       #     duration: 1h # 1 hour
+#       # - setWeight: 20
+#       # - pause: {} # pause indefinitely
+#   selector:
+#     matchLabels:
+#       app: argocd-demo
+#   template:
+#     metadata:
+#       labels:
+#         app: argocd-demo
+#     spec:
+#       containers:
+#         - name: argocd-demo
+#           # image: "shariqrizvi/simple-frontend:v9"
+#           # image: paulbouwer/hello-kubernetes:1.8
+#           image: kmpartner/nodejs-express-template
+#           ports:
+#           # - containerPort: 3000
+#           - containerPort: 4000
+#             protocol: TCP
