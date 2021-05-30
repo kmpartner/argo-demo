@@ -17,12 +17,13 @@ spec:
     spec:
       containers:
       - name: argocd-demo
-        env:
-          - name: PORT
-            valueFrom:
-              secretKeyRef:
-                key: PORT
-                name: test-secrets
+        # env:
+        #   - name: PORT
+        #     valueFrom:
+        #       secretKeyRef:
+        #         key: PORT
+        #         name: test-secrets
+        
         # image: "shariqrizvi/simple-frontend:v9"
         # image: paulbouwer/hello-kubernetes:1.8
         image: kmpartner/nodejs-express-template
