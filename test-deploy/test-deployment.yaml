@@ -16,11 +16,21 @@ spec:
         app: argocd-demo
     spec:
       containers:
-        - name: argocd-demo
-          # image: "shariqrizvi/simple-frontend:v9"
-          # image: paulbouwer/hello-kubernetes:1.8
-          image: kmpartner/nodejs-express-template
-          ports:
-          # - containerPort: 3000
-          - containerPort: 4000
-            protocol: TCP
+      - name: argocd-demo
+        env:
+          - name: PORT
+            valueFrom:
+              secretKeyRef:
+                key: PORT
+                name: test-secrets
+        # image: "shariqrizvi/simple-frontend:v9"
+        # image: paulbouwer/hello-kubernetes:1.8
+        image: kmpartner/nodejs-express-template
+        ports:
+        # - containerPort: 3000
+        - containerPort: 4000
+          protocol: TCP
+        resources:
+          requests:
+            memory: "1Mi"
+            cpu: "1m"
