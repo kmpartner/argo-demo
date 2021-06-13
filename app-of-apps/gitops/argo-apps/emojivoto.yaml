@@ -14,6 +14,6 @@ spec:
 
     # path: app-of-apps/gitops/resources/emojivoto
     # repoURL: git://git-server.scm:9418/argo-demo.git
-    
-    path: gitops/resources/emojivoto
-    repoURL: https://github.com/kmpartner/linkerd-examples.git
+
+    path: app-of-apps/gitops/resources/emojivoto
+    repoURL: https://github.com/kmpartner/argo-demo.git
