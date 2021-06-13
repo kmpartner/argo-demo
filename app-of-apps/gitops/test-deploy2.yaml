@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     # namespace: argocd
-    namespace: default
+    namespace: test-deploy2
     # server: {{ .Values.spec.destination.server }}
     server: https://kubernetes.default.svc
   project: demo2
@@ -16,3 +16,9 @@ spec:
     path: test-deploy
     repoURL: https://github.com/kmpartner/argo-demo.git
     targetRevision: HEAD
+    
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: test-deploy2
