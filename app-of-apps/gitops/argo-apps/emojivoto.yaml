@@ -10,6 +10,10 @@ spec:
   project: demo2
   source:
     # path: gitops/resources/emojivoto
-    path: app-of-apps/gitops/resources/emojivoto
     # repoURL: git://git-server.scm:9418/linkerd-examples.git
-    repoURL: git://git-server.scm:9418/argo-demo.git
+
+    # path: app-of-apps/gitops/resources/emojivoto
+    # repoURL: git://git-server.scm:9418/argo-demo.git
+    
+    path: gitops/resources/emojivoto
+    repoURL: https://github.com/kmpartner/linkerd-examples.git
