@@ -11,7 +11,7 @@ spec:
     namespace: default
     # server: {{ .Values.spec.destination.server }}
     server: https://kubernetes.default.svc
-  project: demo
+  project: demo2
   source:
     path: test-deploy
     repoURL: https://github.com/kmpartner/argo-demo.git
