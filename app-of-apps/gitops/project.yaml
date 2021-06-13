@@ -35,6 +35,8 @@ spec:
 
   - namespace: default
     server: https://kubernetes.default.svc
+  - namespace: test-deploy2
+    server: https://kubernetes.default.svc
   sourceRepos:
   # - git://git-server.scm:9418/linkerd-examples.git
   - git://git-server.scm:9418/argo-demo.git
