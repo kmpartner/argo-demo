@@ -7,9 +7,8 @@ spec:
   destination:
     namespace: argocd
     server: https://kubernetes.default.svc
-  project: demo2
+  project: demo
   source:
-    path: ./app-of-apps/gitops-test
-    # repoURL: git://git-server.scm:9418/linkerd-examples.git
+    path: ./gitops/argo-apps
+    repoURL: git://git-server.scm:9418/linkerd-examples.git
     # repoURL: https://github.com/kmpartner/linkerd-examples.git
-    repoURL: https://github.com/kmpartner/argo-demo.git

@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: demo2
+  name: demo
   namespace: argocd
 spec:
   clusterResourceWhitelist:
@@ -32,7 +32,8 @@ spec:
     server: https://kubernetes.default.svc
   - namespace: linkerd
     server: https://kubernetes.default.svc
-  - namespace: test-deploy
+
+  - namespace: default
     server: https://kubernetes.default.svc
   sourceRepos:
   - git://git-server.scm:9418/linkerd-examples.git
@@ -42,6 +43,6 @@ spec:
   # - https://kubernetes-charts.storage.googleapis.com
   - https://charts.helm.sh/stable
 
-  # - https://github.com/argoproj/argocd-example-apps
-  # - https://github.com/kmpartner/linkerd-examples.git
+  - https://github.com/kmpartner/linkerd-examples.git
+  - https://github.com/argoproj/argocd-example-apps
   - https://github.com/kmpartner/argo-demo.git
