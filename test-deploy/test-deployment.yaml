@@ -5,7 +5,7 @@ metadata:
   labels:
     app: argocd-demo
 spec:
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 3
   selector:
     matchLabels:
@@ -23,7 +23,7 @@ spec:
         #       secretKeyRef:
         #         key: PORT
         #         name: test-secrets
-        
+
         # image: "shariqrizvi/simple-frontend:v9"
         # image: paulbouwer/hello-kubernetes:1.8
         image: kmpartner/nodejs-express-template

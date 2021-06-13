@@ -87,6 +87,8 @@ npm-debug.log
 .env
 # *.yaml
 # *.yml
+*secret.yml
+*secrets.yml
 *secret.yaml
 *secrets.yaml
 
